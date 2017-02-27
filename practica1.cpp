@@ -45,6 +45,7 @@ int main( int argc, char** argv )
 
 	cap >> image;
 
+	//CONTRASTE:
 	/// Initialize values
 	// cout<<" Mejora de contraste "<<endl;
 	// cout<<"-------------------------"<<endl;
@@ -77,6 +78,8 @@ int main( int argc, char** argv )
 	// imshow("Original Image", image);
 	// imshow("New Image", new_image);
 
+	
+	//ECUALIZACION DEL HISTOGRAMA (Dibujar histograma inicial)
 	// /// Separate the image in 3 places ( B, G and R )
  //  	vector<Mat> bgr_planes;
  //  	split( image, bgr_planes );
@@ -126,7 +129,7 @@ int main( int argc, char** argv )
 	// namedWindow("Histograma", CV_WINDOW_AUTOSIZE );
 	// imshow("Histograma", histImage );
 
-	// // ECUALIZACION DE IMAGEN
+	// // ECUALIZACION DE IMAGEN (ecualizar histograma)
 	// Mat equalized_b, equalized_g, equalized_r;
 
 	// // ECUALIZAMOS POR COLORES
@@ -180,6 +183,8 @@ int main( int argc, char** argv )
 	//Mat image_blur;
 	//blur(image, image_blur, Size(9,9));
 
+	//ALIEN
+	
 	// char c;
 	// int rojo = 0;
 	// int azul = 0;
@@ -244,11 +249,10 @@ int main( int argc, char** argv )
 	  
 	// }
 
-	// comprobaciones....
-
 	namedWindow("Original", 1);
 	imshow("Original", image );
 
+	//REDUCCION DE COLORES 
 	//namedWindow("Blur", 1);
 	//imshow("Blur", image_blur );
 
