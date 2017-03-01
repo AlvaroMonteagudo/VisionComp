@@ -11,18 +11,19 @@ using namespace std;
 
 void colorReduce(Mat& image, int div)
 {    
-    int nl = image.rows;                    // number of lines
-    int nc = image.cols * image.channels(); // number of elements per line
+    int nl = image.rows;   // number of lines
+    int nc = image.cols;   // number of elements per line
+    int intervalo = 255/div;
 
-    for (int j = 0; j < nl; j++)
-    {
+    for (int j = 0; j < nl; j++){
         // get the address of row j
         uchar* data = image.ptr<uchar>(j);
 
-        for (int i = 0; i < nc; i++)
-        {
+        for (int i = 0; i < nc; i++){
             // process each pixel
-            data[i] = data[i] / div * div + div;
+        	int grupo = data[i]/intervalo;
+
+            data[i] = grupo*intervalo;
         }
     }
 }
@@ -42,6 +43,8 @@ int main( int argc, char** argv )
 	int colores;
 	cout << "Número de colores de la imagen: " << endl;
 	cin >> colores;
+
+	cvtColor(image,image,CV_RGB2GRAY);
 
 	Mat c_reduce = image.clone();
 
